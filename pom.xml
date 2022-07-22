@@ -13,6 +13,7 @@
     <!--子模块-->
     <modules>
         <module>bean-life</module>
+        <module>filter-Interceptor</module>
     </modules>
 
     <properties>
