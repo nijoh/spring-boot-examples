@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!-- 引入配置文件 -->
+    <properties resource="application.properties"/>
+
+    <context id="baseTradeTables" targetRuntime="MyBatis3">
+
+        <!-- 实体类生成序列化属性-->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+        <!--        &lt;!&ndash; 实体类重写HashCode()和equals()&ndash;&gt;-->
+        <!--        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />-->
+        <!--        &lt;!&ndash; 实体类重写toString() &ndash;&gt;-->
+        <!--        <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />-->
+
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释 -->
+            <property name="suppressAllComments" value="true"/>
+            <!-- 生成注释是否带时间戳-->
+            <property name="suppressDate" value="false"/>
+            <!-- 生成的Java文件的编码格式 -->
+            <property name="javaFileEncoding" value="utf-8"/>
+            <!-- 格式化java代码-->
+            <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter"/>
+            <!-- 格式化XML mybatis xml查询-->
+            <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>
+        </commentGenerator>
+
+        <!-- 数据库地址、用户名、密码 -->
+        <jdbcConnection driverClass="${jdbc.driver}"
+                        connectionURL="${jdbc.url}" userId="${jdbc.username}"
+                        password="${jdbc.password}">
+        </jdbcConnection>
+
+        <!-- java类型处理器：处理DB中的类型到Java中的类型 -->
+        <javaTypeResolver type="org.mybatis.generator.internal.types.JavaTypeResolverDefaultImpl">
+            <!-- 是否有效识别DB中的BigDecimal类型 -->
+            <property name="forceBigDecimals" value="true"/>
+        </javaTypeResolver>
+
+        <!-- 生成javabean路径-->
+        <!-- 生成Domain模型：包名(targetPackage)、位置(targetProject) -->
+        <javaModelGenerator targetPackage="${generator.targetPackage}" targetProject="${generator.targetProject}">
+        </javaModelGenerator>
+
+
+        <!-- 生成xml映射文件：包名(targetPackage)、位置(targetProject) -->
+        <sqlMapGenerator targetPackage="${generator.targetPackage}" targetProject="${generator.targetProject}">
+        </sqlMapGenerator>
+
+
+        <!-- 生成DAO接口：包名(targetPackage)、位置(targetProject) -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="${generator.targetPackage}" targetProject="${generator.targetProject}">
+        </javaClientGenerator>
+
+
+        <!-- 生成表配置  -->
+        <!-- 要生成的表：tableName ，domainObjectName: 实体类名 -->
+        <table tableName="${generator.tableName}" domainObjectName="${generator.domainObjectName}"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+
+    </context>
+</generatorConfiguration>

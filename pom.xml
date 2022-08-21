@@ -14,6 +14,7 @@
     <modules>
         <module>bean-life</module>
         <module>filter-Interceptor</module>
+        <module>mybatis-generator</module>
     </modules>
 
     <properties>
