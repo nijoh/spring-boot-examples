@@ -34,4 +34,11 @@ public class User implements InitializingBean {
     public void postConstruct() {
         System.out.println("我是postConstruct方法执行...");
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userName='" + userName + '\'' +
+                '}';
+    }
 }
