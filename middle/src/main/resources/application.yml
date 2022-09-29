@@ -1,0 +1,12 @@
+server:
+  port: 8080
+spring:
+  rabbitmq:
+    username: nijo
+    password: nijo
+    host: 127.0.0.1
+    port: 5672
+    virtual-host: /
+    listener:
+      simple:
+        acknowledge-mode: manual # 消费者手动回执
