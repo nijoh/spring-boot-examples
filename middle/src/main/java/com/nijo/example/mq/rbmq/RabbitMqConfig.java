@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-//声明MQ队列、交换机
+//声明  MQ队列、交换机 包含插件的队列
 @Configuration
 public class RabbitMqConfig {
     //订单队列交换机
@@ -63,6 +63,10 @@ public class RabbitMqConfig {
     public DirectExchange dlxOrderExchange(){
         //durable持久化交换机 direct模式
         return ExchangeBuilder.directExchange(RabbitMqConfig.DLX_ORDER_EXCHANGE).durable(true).build();
+
+        //带插件延时交换机 delayed() ps:已创建好的交换机代码上修改，MQ管理页面记得删除之前交换机，让新代码重创建
+        //return ExchangeBuilder.directExchange(RabbitMqConfig.DLX_ORDER_EXCHANGE).delayed().durable(true).build();
+
     }
 
     //死信订单队列

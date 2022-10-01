@@ -10,3 +10,5 @@ spring:
     listener:
       simple:
         acknowledge-mode: manual # 消费者手动回执
+    publisher-returns: true #队列确认消息 默认false
+    publisher-confirm-type: correlated #交换机确认消息 默认NONE 禁用发布模式 CORRELATED：发布消息成功到交换器后会触发回调方法
