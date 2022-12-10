@@ -16,6 +16,7 @@
         <module>filter-Interceptor</module>
         <module>mybatis-generator</module>
         <module>middle</module>
+        <module>bean-aop</module>
     </modules>
 
     <properties>

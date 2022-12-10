@@ -5,6 +5,13 @@ import org.junit.jupiter.api.Test;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import sun.misc.Unsafe;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.PriorityBlockingQueue;
 
 @SpringBootTest
 public class RbMqTest {
@@ -30,5 +37,24 @@ public class RbMqTest {
             message.getMessageProperties().setExpiration("10000");
             return message;
         });
+    }
+
+    @Test
+    public void queue() throws InterruptedException {
+        PriorityBlockingQueue<Integer> integers = new PriorityBlockingQueue<Integer>(5, (x, y) -> {
+            return x.compareTo(y);
+        });
+        integers.add(3);
+        integers.add(5);
+        integers.add(2);
+        //integers.add(0);
+        //Unsafe.getUnsafe().compareAndSwapInt();
+        System.out.println(integers);
+
+    }
+
+    public static void main(String[] args) {
+        List<Integer> list=new ArrayList<>(5);
+        list.add(1);
     }
 }
