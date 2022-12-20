@@ -19,6 +19,7 @@
 
 ## [中间件](https://github.com/nijoh/spring-boot-examples/tree/master/middle)
 > 1.RabbitMQ高级特性：死信队列、延迟消息、消息可靠性
+> 2.ElasticSearch缓存API如何使用示列
 
 ## [ORM生成器Mybtis-Generator](https://github.com/nijoh/spring-boot-examples/tree/master/mybatis-generator)
 > 1.配置SQL表全自动生成Entity、Mapper、Service
